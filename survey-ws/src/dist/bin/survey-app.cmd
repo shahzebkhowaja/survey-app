@@ -1,0 +1,1 @@
+java -Xmx4G -cp "..\lib\*" com.shajzlabs.surveyws.SurveyApplication ..\config\dropwizard.yml

@@ -1,0 +1,34 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading' id="title">
+        Customer Satisfaction Survey Template
+    </div>
+    <div>
+        <form (ngSubmit)="submitSurvey(); surveyForm.reset()" #surveyForm="ngForm">
+            <div style="margin-top: 30px;" class="form-group" *ngFor="let question of questions; let i = index">
+                <label id="question" [attr.for]="question.questionId">{{i+1}}. {{question.questionText}} </label>
+                
+                <div style="margin-top: 10px;" *ngIf="question.questionType == 'single_choice'">
+                    <span *ngFor="let option of question.options; let j = index">
+                        <span *ngIf="i == 0 && j == 0">NOT AT ALL LIKELY</span>
+                        <input type="radio" [name]="question.questionId" [required]="true" [checked]="option.selected" (change)="setRadioValue(question.questionId,$event.target.value)" value="{{option.optionId}}"> {{option.optionText}}
+                        <span *ngIf="i == 0 && j == question.options.length - 1">EXTREMELY LIKELY</span>
+                    </span>
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="question.questionType == 'multiple_choice'">
+                    <span *ngFor="let option of question.options; let j = index">
+                        <input type="checkbox" [name]="option.optionId" [(ngModel)]="option.selected" value="{{option.optionId}}"> {{option.optionText}}
+                    </span>
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="question.questionType == 'text'">
+                    <textarea  [name]="question.questionId" [required]="true" [(ngModel)]="question.answerText" value="{{question.answerText}}" cols="70" rows="5"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!surveyForm.form.valid">Submit</button>
+            <button type="button" class="btn btn-default" (click)="surveyForm.reset()">Reset</button>
+        </form>
+        
+    </div>
+</div>

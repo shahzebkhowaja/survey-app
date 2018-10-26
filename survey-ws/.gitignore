@@ -1,0 +1,11 @@
+# Ignore internal Gradle folders
+.gradle/
+
+# Ignore Gradle builds
+*/build/
+build/
+classes/
+
+# IntelliJ ignores
+.idea/
+*/.idea/

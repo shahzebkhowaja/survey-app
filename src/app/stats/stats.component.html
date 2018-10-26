@@ -1,0 +1,32 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading' id="title">
+        Thank you for taking the time to fill out our survey.
+    </div>
+
+    <div *ngIf='statsList'>
+        <div class="row" style="border: 1px solid black; height: 250px;" *ngFor="let stats of statsList; let i = index">
+            <div class="col-md-6">
+                <label id="question">{{i+1}}. {{stats.questionText}} </label>
+            </div>
+
+            
+
+            <div style="margin-top: 20px">
+                <ngx-charts-bar-horizontal
+                    [view]="view"
+                    [results]="stats.optionTextCounts"
+                    [gradient]="gradient"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [legend]="showLegend"
+                    [legendTitle]="legendTitle"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel">
+                </ngx-charts-bar-horizontal>
+            </div>
+        </div>
+    </div>
+
+</div>
