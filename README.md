@@ -20,7 +20,7 @@
 ## Start Web Services and Web Application
 
 ### Run without cloning repo
-- Use the link to download the distribution package: https://github.com/shahzebkhowaja/survey-app/releases/download/1.0/
+- Use the link to download the distribution package: https://github.com/shahzebkhowaja/survey-app/releases
 - Unzip the package, and open unziped package on terminal/CommandPrompt/PowerShell: e.g ("survey-app-distribution\")
 - Navigate to `survey-app-distribution\survey-app\`
 - Run `npm install`, to install node module, once finished run `npm start`, it will start the fron-end app on port `4200` - http://localhost:4200/
